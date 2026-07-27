@@ -4,10 +4,6 @@
     "description": "REST API - Laravel 12 + Sanctum",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  "variable": [
-    { "key": "base_url", "value": "http://localhost:8000/api/v1" },
-    { "key": "token", "value": "" }
-  ],
   "item": [
     {
       "name": "Authentication",
@@ -24,7 +20,13 @@
               "mode": "raw",
               "raw": "{\n  \"name\": \"أحمد محمد\",\n  \"email\": \"ahmed@example.com\",\n  \"password\": \"password123\",\n  \"password_confirmation\": \"password123\"\n}"
             },
-            "url": { "raw": "{{base_url}}/register" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "register"]
+            }
           }
         },
         {
@@ -36,7 +38,7 @@
                 "exec": [
                   "var jsonData = pm.response.json();",
                   "if (jsonData.access_token) {",
-                  "  pm.collectionVariables.set('token', jsonData.access_token);",
+                  "  pm.globals.set('token', jsonData.access_token);",
                   "}"
                 ]
               }
@@ -52,7 +54,13 @@
               "mode": "raw",
               "raw": "{\n  \"email\": \"ahmed@example.com\",\n  \"password\": \"password123\"\n}"
             },
-            "url": { "raw": "{{base_url}}/login" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "login"]
+            }
           }
         },
         {
@@ -63,7 +71,13 @@
               { "key": "Accept", "value": "application/json" },
               { "key": "Authorization", "value": "Bearer {{token}}" }
             ],
-            "url": { "raw": "{{base_url}}/logout" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "logout"]
+            }
           }
         }
       ]
@@ -77,7 +91,11 @@
             "method": "GET",
             "header": [{ "key": "Accept", "value": "application/json" }],
             "url": {
-              "raw": "{{base_url}}/articles?search=&category=&tag=&sort=latest&per_page=9",
+              "raw": "http://localhost:8000/api/v1/articles?search=&category=&tag=&sort=latest&per_page=9",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "articles"],
               "query": [
                 { "key": "search", "value": "" },
                 { "key": "category", "value": "" },
@@ -93,7 +111,13 @@
           "request": {
             "method": "GET",
             "header": [{ "key": "Accept", "value": "application/json" }],
-            "url": { "raw": "{{base_url}}/articles/popular" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/articles/popular",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "articles", "popular"]
+            }
           }
         },
         {
@@ -101,7 +125,13 @@
           "request": {
             "method": "GET",
             "header": [{ "key": "Accept", "value": "application/json" }],
-            "url": { "raw": "{{base_url}}/articles/{slug}" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/articles/article-slug-here",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "articles", "article-slug-here"]
+            }
           }
         },
         {
@@ -117,7 +147,13 @@
               "mode": "raw",
               "raw": "{\n  \"title\": \"عنوان المقال الجديد\",\n  \"excerpt\": \"ملخص قصير للمقال\",\n  \"content\": \"محتوى المقال بالتفصيل...\",\n  \"category_id\": 1,\n  \"status\": \"published\",\n  \"tags\": [1, 2]\n}"
             },
-            "url": { "raw": "{{base_url}}/articles" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/articles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "articles"]
+            }
           }
         },
         {
@@ -133,7 +169,13 @@
               "mode": "raw",
               "raw": "{\n  \"title\": \"عنوان معدل\",\n  \"content\": \"محتوى محدث...\"\n}"
             },
-            "url": { "raw": "{{base_url}}/articles/{id}" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/articles/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "articles", "1"]
+            }
           }
         },
         {
@@ -144,7 +186,13 @@
               { "key": "Accept", "value": "application/json" },
               { "key": "Authorization", "value": "Bearer {{token}}" }
             ],
-            "url": { "raw": "{{base_url}}/articles/{id}" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/articles/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "articles", "1"]
+            }
           }
         }
       ]
@@ -157,7 +205,13 @@
           "request": {
             "method": "GET",
             "header": [{ "key": "Accept", "value": "application/json" }],
-            "url": { "raw": "{{base_url}}/categories" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/categories",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "categories"]
+            }
           }
         },
         {
@@ -165,7 +219,13 @@
           "request": {
             "method": "GET",
             "header": [{ "key": "Accept", "value": "application/json" }],
-            "url": { "raw": "{{base_url}}/categories/{slug}" }
+            "url": {
+              "raw": "http://localhost:8000/api/v1/categories/category-slug-here",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "v1", "categories", "category-slug-here"]
+            }
           }
         }
       ]
