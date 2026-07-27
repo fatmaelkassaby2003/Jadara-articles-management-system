@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Api\V1;
+namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TagResource extends JsonResource
+class CategoryResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
@@ -13,6 +13,8 @@ class TagResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
+            'description' => $this->description,
+            'articles_count' => $this->whenCounted('articles'),
         ];
     }
 }

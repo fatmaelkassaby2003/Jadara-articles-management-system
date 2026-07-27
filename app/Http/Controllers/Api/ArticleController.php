@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
-use App\Http\Resources\Api\V1\ArticleResource;
+use App\Http\Resources\Api\ArticleResource;
 use App\Models\Article;
 use App\Services\ArticleService;
 use Illuminate\Http\JsonResponse;
@@ -14,8 +14,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ArticleController extends Controller
 {
-   public function __construct(protected ArticleService $articleService) {}
-
+    public function __construct(protected ArticleService $articleService) {}
 
     public function index(Request $request): AnonymousResourceCollection
     {

@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\V1\ArticleController;
-use App\Http\Controllers\Api\V1\AuthController;
-use App\Http\Controllers\Api\V1\CategoryController;
+use App\Http\Controllers\Api\ArticleController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
